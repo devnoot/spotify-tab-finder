@@ -32,15 +32,14 @@ const App = () => {
 
   const handleLoginClick = () => {
     const scopes = ['user-read-playback-state', 'user-read-currently-playing']
-
-    const redirectTo = 'https://devnoot.github.io/spotify-tab-finder'
+    const redirectTo = new URL('https://devnoot.github.io/spotify-tab-finder/')
 
     // Redirect the user to Spotify
     const loginURL = new URL('https://accounts.spotify.com/authorize')
     loginURL.search = new URLSearchParams({
       client_id: '31a08164715940a08d4add6eb1372142',
       response_type: 'token',
-      redirect_uri: redirectTo,
+      redirect_uri: url.toString(),
       scope: scopes.join(' '),
     }).toString()
 
