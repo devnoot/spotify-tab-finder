@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve src/index.html --port=5000"
+    "start": "parcel serve src/index.html --port=5000",
+    "build": "parcel build src/index.html",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "yarn build"
   },
   "keywords": [
     "spotify",
