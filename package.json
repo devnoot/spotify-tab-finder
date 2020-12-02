@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve src/index.html --port=5000",
-    "build": "parcel build src/index.html --public-url ./",
+    "start": "NODE_ENV=development parcel serve src/index.html --port=5000",
+    "build": "NODE_ENV=production parcel build src/index.html --public-url ./",
     "deploy": "gh-pages -d dist",
     "predeploy": "yarn build"
   },

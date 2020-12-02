@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-js'
+import { config } from './config'
 
 const Spotify = new SpotifyWebApi()
 
@@ -13,7 +14,7 @@ const SongsterrButton = ({ onClick, label, ...rest }) => {
 
 const NowPlayingCard = ({ artist, name, showNowPlaying, ...rest }) => {
   return (
-    <div>
+    <div {...rest}>
       <h1>Now Playing</h1>
       <p className="artist">{artist}</p>
       <p className="title">{name}</p>
@@ -32,14 +33,16 @@ const App = () => {
 
   const handleLoginClick = () => {
     const scopes = ['user-read-playback-state', 'user-read-currently-playing']
-    const redirectTo = new URL('https://devnoot.github.io/spotify-tab-finder/')
 
     // Redirect the user to Spotify
     const loginURL = new URL('https://accounts.spotify.com/authorize')
+
+    const redirect = config.homeURL.toString()
+
     loginURL.search = new URLSearchParams({
-      client_id: '31a08164715940a08d4add6eb1372142',
+      client_id: config.spotify.clientId,
       response_type: 'token',
-      redirect_uri: redirectTo.toString(),
+      redirect_uri: redirect,
       scope: scopes.join(' '),
     }).toString()
 
@@ -82,7 +85,7 @@ const App = () => {
 
   const logout = () => {
     localStorage.removeItem('spotifyAccessToken')
-    window.location = '/'
+    window.location = config.homeURL.toString()
   }
 
   // If the user has a token in the URL set it
@@ -95,7 +98,7 @@ const App = () => {
       setToken(parts[1])
       // set the token in localstorage
       localStorage.setItem('spotifyAccessToken', parts[1])
-      window.location = '/'
+      window.location = config.homeURL.toString()
     }
   }, [])
 
