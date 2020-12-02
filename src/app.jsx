@@ -39,7 +39,7 @@ const App = () => {
     loginURL.search = new URLSearchParams({
       client_id: '31a08164715940a08d4add6eb1372142',
       response_type: 'token',
-      redirect_uri: url.toString(),
+      redirect_uri: redirectTo.toString(),
       scope: scopes.join(' '),
     }).toString()
 
