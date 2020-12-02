@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel serve src/index.html --port=5000",
-    "build": "parcel build src/index.html --public-url=.",
+    "build": "parcel build src/index.html --public-url ./",
     "deploy": "gh-pages -d dist",
     "predeploy": "yarn build"
   },
