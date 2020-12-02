@@ -33,7 +33,7 @@ const App = () => {
   const handleLoginClick = () => {
     const scopes = ['user-read-playback-state', 'user-read-currently-playing']
 
-    const redirectTo = 'https://github.devnoot.io/spotify-tab-finder'
+    const redirectTo = 'https://devnoot.github.io/spotify-tab-finder'
 
     // Redirect the user to Spotify
     const loginURL = new URL('https://accounts.spotify.com/authorize')
