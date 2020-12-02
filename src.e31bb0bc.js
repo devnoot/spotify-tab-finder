@@ -31949,7 +31949,7 @@ const App = () => {
   };
 
   const songsterQuery = async () => {
-    const data = await fetch(`http://www.songsterr.com/a/ra/songs.json?pattern=${encodeURI(playing.name)}`);
+    const data = await fetch(`https://www.songsterr.com/a/ra/songs.json?pattern=${encodeURI(playing.name)}`);
     return await data.json();
   };
 
@@ -32015,7 +32015,7 @@ const App = () => {
       const stuff = await songsterQuery();
       const [first] = stuff;
       const songId = first.id;
-      const url = `http://www.songsterr.com/a/wa/song?id=${songId}`;
+      const url = `https://www.songsterr.com/a/wa/song?id=${songId}`;
       setTabUrl(url);
     })();
   }, [playing]);
@@ -32087,7 +32087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59097" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37657" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
