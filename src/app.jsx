@@ -51,7 +51,7 @@ const App = () => {
 
   const songsterQuery = async () => {
     const data = await fetch(
-      `http://www.songsterr.com/a/ra/songs.json?pattern=${encodeURI(
+      `https://www.songsterr.com/a/ra/songs.json?pattern=${encodeURI(
         playing.name,
       )}`,
     )
@@ -123,7 +123,7 @@ const App = () => {
       const stuff = await songsterQuery()
       const [first] = stuff
       const songId = first.id
-      const url = `http://www.songsterr.com/a/wa/song?id=${songId}`
+      const url = `https://www.songsterr.com/a/wa/song?id=${songId}`
       setTabUrl(url)
     })()
   }, [playing])
